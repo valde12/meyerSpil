@@ -90,7 +90,12 @@ public class YatzyBlok {
                     System.out.println(" - Med " + toGangeTreEns.beregnMulige(terninger)[0] + "'erne og " + toGangeTreEns.beregnMulige(terninger)[1] + "'erne til " + toGangeTreEns.beregnPoint(toGangeTreEns.beregnMulige(terninger)[0],toGangeTreEns.beregnMulige(terninger)[1]) + " point");
                 }
                 case "Hus" -> {
-                    System.out.println(" - Med " + hus.beregnMulige(terninger)[0] + "'erne og " + hus.beregnMulige(terninger)[1] + "'erne til " + hus.beregnPoint(hus.beregnMulige(terninger)[0], hus.beregnMulige(terninger)[1]) + " point");
+                    if (hus.beregnMulige(terninger).length > 2) {
+                        System.out.println(" - Af 1 par med " + hus.beregnMulige(terninger)[0] + "'erne og 3 ens med " + hus.beregnMulige(terninger)[1] + "'erne til " + hus.beregnPoint(hus.beregnMulige(terninger)[0], hus.beregnMulige(terninger)[1]) + " point");
+                        System.out.println(" - Af 1 par med " + hus.beregnMulige(terninger)[2] + "'erne og 3 ens med " + hus.beregnMulige(terninger)[3] + "'erne til " + hus.beregnPoint(hus.beregnMulige(terninger)[2], hus.beregnMulige(terninger)[3]) + " point");
+                    } else {
+                        System.out.println(" - Af 1 par med " + hus.beregnMulige(terninger)[0] + "'erne og 3 ens med " + hus.beregnMulige(terninger)[1] + "'erne til " + hus.beregnPoint(hus.beregnMulige(terninger)[0], hus.beregnMulige(terninger)[1]) + " point");
+                    }
                 }
                 default -> {
                     System.out.println(" - Til "+ i.beregnPoint(terninger) + " point");

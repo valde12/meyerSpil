@@ -13,7 +13,15 @@ public class hus extends ParFelter {
 
     @Override
     public int[] beregnMulige(int[] terninger) {
-        return new int[]{beregnEns(terninger, 2)[0], beregnEns(terninger, 3)[0]};
+        int[] parAfTo = beregnEns(terninger, 2);
+        int[] parAfTre = beregnEns(terninger, 3);
+        if (parAfTre.length >= 2) {
+            return new int[]{parAfTo[0], parAfTre[1], parAfTo[1], parAfTre[0]};
+        } else if (parAfTre[0] == parAfTo[0]){
+            return new int[]{parAfTo[1], parAfTre[0]};
+        } else {
+            return new int[]{parAfTo[0], parAfTre[0]};
+        }
     }
 
     public int beregnPoint(int oejenVaerdiPar, int oejenVaerdiTreEns) {

@@ -10,7 +10,7 @@ public abstract class ParFelter extends YatzyBlokFelt {
 
     public abstract boolean erMulig(int[] terninger);
     public abstract int[] beregnMulige(int[] terninger);
-    public int beregnPoint(int oejenVaerdi) {
+    public int beregnPointEns(int oejenVaerdi) {
         return 0;
     }
 
@@ -26,7 +26,7 @@ public abstract class ParFelter extends YatzyBlokFelt {
         int taeller = 0;
         for (int i = 0; i < 6; i++) {
             if (antal[i] >= hvorMangeEns) {
-                parIntArray[taeller] = antal[i];
+                parIntArray[taeller] = i+1;
                 taeller++;
             }
         }

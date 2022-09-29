@@ -41,12 +41,12 @@ public class YatzyBlok {
         treEns = new treEns("3 ens");
         fireEns = new fireEns("4 ens");
         toGangeTreEns = new toGangeTreEns("2x3 ens");
-        lilleStraight = new lilleStraight("lille straight");
-        storStraight = new storStraight("stor straight");
-        royal = new royal("royal");
-        hus = new hus("hus");
-        chance = new chance("chance");
-        yatzy = new yatzy("yatzy");
+        lilleStraight = new lilleStraight("Lille straight");
+        storStraight = new storStraight("Stor straight");
+        royal = new royal("Royal");
+        hus = new hus("Hus");
+        chance = new chance("Chance");
+        yatzy = new yatzy("Yatzy");
         pointIAlt = 0;
     }
 
@@ -68,6 +68,34 @@ public class YatzyBlok {
         }
         for (YatzyBlokFelt i : yatzyBlokFelterMulige) {
             System.out.println(i.seType() + " er mulig");
+            switch (i.seType()) {
+                case "1 par", "3 ens", "4 ens", "Yatzy" -> {
+                    for(int par : i.beregnMulige(terninger)){
+                        System.out.println(" - Med " + par + "'erne til " + i.beregnPointEns(par) + " point");
+                    }
+                }
+                case "2 par" -> {
+                    if (toPar.beregnMulige(terninger).length == 2) {
+                        System.out.println(" - Med " + toPar.beregnMulige(terninger)[0] + "'erne og " + toPar.beregnMulige(terninger)[1] + "'erne til " + toPar.beregnPoint(toPar.beregnMulige(terninger)[1], toPar.beregnMulige(terninger)[0]) + " point");
+                    } else {
+                        System.out.println(" - Med " + toPar.beregnMulige(terninger)[0] + "'erne og " + toPar.beregnMulige(terninger)[1] + "'erne til " + toPar.beregnPoint(toPar.beregnMulige(terninger)[1], toPar.beregnMulige(terninger)[0]) + " point");
+                        System.out.println(" - Med " + toPar.beregnMulige(terninger)[2] + "'erne og " + toPar.beregnMulige(terninger)[3] + "'erne til " + toPar.beregnPoint(toPar.beregnMulige(terninger)[2], toPar.beregnMulige(terninger)[3]) + " point");
+                        System.out.println(" - Med " + toPar.beregnMulige(terninger)[4] + "'erne og " + toPar.beregnMulige(terninger)[5] + "'erne til " + toPar.beregnPoint(toPar.beregnMulige(terninger)[4], toPar.beregnMulige(terninger)[5]) + " point");
+                    }
+                }
+                case "3 par" -> {
+                    System.out.println(" - Med " + trePar.beregnMulige(terninger)[0] + "'erne, " + trePar.beregnMulige(terninger)[1] + "'erne og " + trePar.beregnMulige(terninger)[2] + "'erne til " + trePar.beregnPoint(trePar.beregnMulige(terninger)[0], trePar.beregnMulige(terninger)[1], trePar.beregnMulige(terninger)[2]) + " point");
+                }
+                case "2x3 ens" -> {
+                    System.out.println(" - Med " + toGangeTreEns.beregnMulige(terninger)[0] + "'erne og " + toGangeTreEns.beregnMulige(terninger)[1] + "'erne til " + toGangeTreEns.beregnPoint(toGangeTreEns.beregnMulige(terninger)[0],toGangeTreEns.beregnMulige(terninger)[1]) + " point");
+                }
+                case "Hus" -> {
+                    System.out.println(" - Med " + hus.beregnMulige(terninger)[0] + "'erne og " + hus.beregnMulige(terninger)[1] + "'erne til " + hus.beregnPoint(hus.beregnMulige(terninger)[0], hus.beregnMulige(terninger)[1]) + " point");
+                }
+                default -> {
+                    System.out.println(" - Til "+ i.beregnPoint(terninger) + " point");
+                }
+            }
         }
     }
 

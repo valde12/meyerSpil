@@ -17,7 +17,7 @@ public class treEns extends ParFelter {
     }
 
     @Override
-    public int beregnPoint(int oejenVaerdi) {
+    public int beregnPointEns(int oejenVaerdi) {
         return oejenVaerdi*3;
     }
 }

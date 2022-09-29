@@ -60,4 +60,12 @@ public abstract class YatzyBlokFelt {
     public int beregnPoint(int[] terninger) {
         return 0;
     }
+
+    public int beregnPointEns(int i) {
+        return 0;
+    }
+
+    public int[] beregnMulige(int[] terninger) {
+        return new int[0];
+    }
 }

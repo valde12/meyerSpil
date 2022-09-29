@@ -13,7 +13,7 @@ public class storStraight extends SpecialFelter{
     }
 
     @Override
-    public int beregnPoint() {
+    public int beregnPoint(int[] terninger) {
         return 20;
     }
 }

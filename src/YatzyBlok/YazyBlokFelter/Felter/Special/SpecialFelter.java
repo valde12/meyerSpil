@@ -10,7 +10,7 @@ public abstract class SpecialFelter extends YatzyBlokFelt {
 
     public abstract boolean erMulig(int[] terninger);
 
-    public abstract int beregnPoint();
+    public abstract int beregnPoint(int[] terninger);
 
     protected int[] antalTaeller(int[] terninger) {
         int[] antal = {0, 0, 0, 0, 0, 0};

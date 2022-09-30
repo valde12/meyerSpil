@@ -1,6 +1,7 @@
 package YatzyBlok.YazyBlokFelter;
 
 import java.lang.StringBuilder;
+import java.util.Arrays;
 
 public abstract class YatzyBlokFelt {
     private int point;
@@ -48,7 +49,7 @@ public abstract class YatzyBlokFelt {
     //------------------------------------------------------------------------------------------
     //ser om feltet har noget indhold
     public boolean erBrugt() {
-        return point != 0;
+        return point != 0 || !Arrays.equals(terninger, new int[]{0, 0, 0, 0, 0, 0});
     }
 
     //------------------------------------------------------------------------------------------

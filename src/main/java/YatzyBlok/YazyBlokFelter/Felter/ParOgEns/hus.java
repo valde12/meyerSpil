@@ -8,7 +8,13 @@ public class hus extends ParFelter {
 
     @Override
     public boolean erMulig(int[] terninger) {
-        return !this.erBrugt() && beregnEns(terninger, 3).length >= 1 && beregnEns(terninger, 2).length >= 1;
+        if (beregnEns(terninger, 3).length < 1 ) {
+            return false;
+        } else if (beregnEns(terninger, 3).length == 1 && beregnEns(terninger, 2).length == 1) {
+            return false;
+        } else {
+            return !this.erBrugt();
+        }
     }
 
     @Override

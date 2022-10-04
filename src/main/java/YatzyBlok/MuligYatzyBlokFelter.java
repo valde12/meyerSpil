@@ -4,21 +4,7 @@ import YatzyBlok.YazyBlokFelter.YatzyBlokFelt;
 
 public class MuligYatzyBlokFelter extends YatzyBlok{
     public void visMulige(int[] terninger) {
-        int taeller = 0;
-        YatzyBlokFelt[] yatzyBlokFelter = {enere, toere, treere, firer, femmere, seksere, etPar, toPar, trePar, treEns, fireEns, toGangeTreEns, lilleStraight, storStraight, royal, hus, yatzy, chance};
-        for (YatzyBlokFelt x: yatzyBlokFelter) {
-            if (x.erMulig(terninger)) {
-                taeller++;
-            }
-        }
-        YatzyBlokFelt[] yatzyBlokFelterMulige = new YatzyBlokFelt[taeller];
-        int taeller2 = 0;
-        for (YatzyBlokFelt i : yatzyBlokFelter) {
-            if (i.erMulig(terninger)) {
-                yatzyBlokFelterMulige[taeller2] = i;
-                taeller2++;
-            }
-        }
+        YatzyBlokFelt[] yatzyBlokFelterMulige = muligeFelter(terninger);
         for (YatzyBlokFelt i : yatzyBlokFelterMulige) {
             System.out.println(i.seType() + " er mulig");
             switch (i.seType()) {
@@ -55,5 +41,24 @@ public class MuligYatzyBlokFelter extends YatzyBlok{
                 }
             }
         }
+    }
+
+    private YatzyBlokFelt[] muligeFelter(int[] terninger) {
+        int taeller = 0;
+        YatzyBlokFelt[] yatzyBlokFelter = {enere, toere, treere, firer, femmere, seksere, etPar, toPar, trePar, treEns, fireEns, toGangeTreEns, lilleStraight, storStraight, royal, hus, yatzy, chance};
+        for (YatzyBlokFelt x: yatzyBlokFelter) {
+            if (x.erMulig(terninger)) {
+                taeller++;
+            }
+        }
+        YatzyBlokFelt[] yatzyBlokFelterMulige = new YatzyBlokFelt[taeller];
+        int taeller2 = 0;
+        for (YatzyBlokFelt i : yatzyBlokFelter) {
+            if (i.erMulig(terninger)) {
+                yatzyBlokFelterMulige[taeller2] = i;
+                taeller2++;
+            }
+        }
+        return yatzyBlokFelterMulige;
     }
 }

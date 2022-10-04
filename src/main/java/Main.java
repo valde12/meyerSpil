@@ -11,6 +11,5 @@ public class Main {
         }
         System.out.println();
         terningRaekke.visGrafisk();
-        yatzyBlok.visMulige(terningRaekke.returIntArray());
     }
 }

@@ -6,15 +6,17 @@ public class Enere extends EnkeltFelter {
         super(typeNavn);
     }
 
+    private final int INSTANS_VAERDI = 1;
+
     @Override
     public boolean erMulig(int[] terninger) {
-        return !this.erBrugt() && instanser(terninger, 1) != 0;
+        return !this.erBrugt() && instanser(terninger, INSTANS_VAERDI) != 0;
     }
 
     @Override
     public int beregnPoint(int[] terninger) {
         if (this.erMulig(terninger)) {
-            return instanser(terninger, 1);
+            return instanser(terninger, INSTANS_VAERDI);
         } else {
             return 0;
         }

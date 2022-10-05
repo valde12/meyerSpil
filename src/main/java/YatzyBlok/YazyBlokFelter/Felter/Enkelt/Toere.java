@@ -5,14 +5,19 @@ public class Toere extends EnkeltFelter {
     public Toere(String typeNavn) {
         super(typeNavn);
     }
+    private final int INSTANS_VAERDI = 2;
 
     @Override
     public boolean erMulig(int[] terninger) {
-        return !this.erBrugt() && instanser(terninger, 2) != 0;
+        return !this.erBrugt() && instanser(terninger, INSTANS_VAERDI) != 0;
     }
 
     @Override
     public int beregnPoint(int[] terninger) {
-        return instanser(terninger, 2);
+        if (this.erMulig(terninger)) {
+            return instanser(terninger, INSTANS_VAERDI);
+        } else {
+            return 0;
+        }
     }
 }

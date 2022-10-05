@@ -13,6 +13,10 @@ public class Enere extends EnkeltFelter {
 
     @Override
     public int beregnPoint(int[] terninger) {
-        return instanser(terninger, 1);
+        if (this.erMulig(terninger)) {
+            return instanser(terninger, 1);
+        } else {
+            return 0;
+        }
     }
 }

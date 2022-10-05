@@ -18,14 +18,21 @@ public abstract class YatzyBlokFelt {
 
     //------------------------------------------------------------------------------------------
     //set point
-    public void setPoint(int pointInput) {
+    private void setPoint(int pointInput) {
         point = pointInput;
     }
 
     //------------------------------------------------------------------------------------------
     //set terninger
-    public void setTerninger(int[] terningerInput) {
+    private void setTerninger(int[] terningerInput) {
         terninger = terningerInput;
+    }
+
+    //------------------------------------------------------------------------------------------
+    //set felt
+    public void setFelt(int[] terningerInput, int pointInput) {
+        setTerninger(terningerInput);
+        setPoint(pointInput);
     }
 
     //------------------------------------------------------------------------------------------

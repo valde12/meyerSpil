@@ -1,9 +1,11 @@
 public class Terning {
     private final int antalSider = 6;
     private int terningvaerdi;
+    private boolean aktiveret;
     //------------------------------------------------------------------------------------------
     //Constructor til terning
     public Terning() {
+        aktiveret = true;
         terningvaerdi = 1;
     }
     //------------------------------------------------------------------------------------------
@@ -15,6 +17,12 @@ public class Terning {
     //returnere terningens værdi uden at slå
     public int terningvaerdiRetur() {
         return terningvaerdi;
+    }
+    public void setStatus(){
+        aktiveret= !aktiveret;
+    }
+    public boolean seStatus() {
+        return aktiveret;
     }
     //------------------------------------------------------------------------------------------
     //returnere terningens værdi som string uden at slå

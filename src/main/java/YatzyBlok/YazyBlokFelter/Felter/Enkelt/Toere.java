@@ -12,6 +12,9 @@ public class Toere extends EnkeltFelter {
         return !this.erBrugt() && instanser(terninger, INSTANS_VAERDI) != 0;
     }
 
+    public int[] beregnMulige(int[] terninger) {
+        return new int[]{INSTANS_VAERDI};
+    }
     @Override
     public int beregnPoint(int[] terninger) {
         if (this.erMulig(terninger)) {

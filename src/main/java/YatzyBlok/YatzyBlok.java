@@ -8,6 +8,7 @@ import YatzyBlok.YazyBlokFelter.Felter.chance;
 import YatzyBlok.YazyBlokFelter.YatzyBlokFelt;
 
 public class YatzyBlok {
+    public String[][] muligeFelter;
     protected int pointIAlt;
     protected final Enere enere;
     protected final Toere toere;
@@ -99,7 +100,7 @@ public class YatzyBlok {
         }
     }
 
-    private YatzyBlokFelt[] muligeFelter(int[] terninger) {
+    public YatzyBlokFelt[] muligeFelter(int[] terninger) {
         int taeller = 0;
         YatzyBlokFelt[] yatzyBlokFelter = {enere, toere, treere, firer, femmere, seksere, etPar, toPar, trePar, treEns, fireEns, toGangeTreEns, lilleStraight, storStraight, royal, hus, yatzy, chance};
         for (YatzyBlokFelt x: yatzyBlokFelter) {
@@ -116,6 +117,25 @@ public class YatzyBlok {
             }
         }
         return yatzyBlokFelterMulige;
+    }
+
+    public String[][] muligeFelterStringDoubleArray(int[] terninger) {
+        YatzyBlokFelt[] yatzyBlokFelterMulige = muligeFelter(terninger);
+        String[][] muligeFelterStringDoubleArray = new String[yatzyBlokFelterMulige.length][];
+        int taeller = 0;
+        for (YatzyBlokFelt i : yatzyBlokFelterMulige) {
+            int[] tempFeltMuligeArray = i.beregnMulige(terninger);
+            String[] feltMuligeArray = new String[tempFeltMuligeArray.length+1];
+            feltMuligeArray[0] = i.seType();
+            int taeller2 = 1;
+            for (int b : tempFeltMuligeArray) {
+                feltMuligeArray[taeller2] = Integer.toString(b);
+                taeller2++;
+            }
+            muligeFelterStringDoubleArray[taeller] = feltMuligeArray;
+            taeller++;
+        }
+        return muligeFelterStringDoubleArray;
     }
 }
 

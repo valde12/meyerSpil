@@ -30,4 +30,16 @@ public class Terning {
         return Integer.toString(terningvaerdi);
     }
 
+    public String returIkon(){
+        switch (terningvaerdi) {
+            case 1 -> {return "src/main/java/ikoner/ener.png";}
+            case 2 -> {return "src/main/java/ikoner/toer.png";}
+            case 3 -> {return "src/main/java/ikoner/treer.png";}
+            case 4 -> {return "src/main/java/ikoner/firer.png";}
+            case 5 -> {return "src/main/java/ikoner/femmer.png";}
+            case 6 -> {return "src/main/java/ikoner/sekser.png";}
+            default -> {return "fejl";}
+        }
+    }
+
 }

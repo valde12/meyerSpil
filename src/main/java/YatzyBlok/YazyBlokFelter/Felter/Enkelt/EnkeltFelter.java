@@ -15,4 +15,5 @@ public abstract class EnkeltFelter extends YatzyBlokFelt {
     }
     public abstract boolean erMulig(int[] terninger);
     public abstract int beregnPoint(int[] terninger);
+    public abstract int[] beregnMulige(int[] terninger);
 }

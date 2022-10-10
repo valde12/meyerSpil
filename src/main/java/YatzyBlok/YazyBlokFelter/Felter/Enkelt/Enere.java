@@ -14,6 +14,11 @@ public class Enere extends EnkeltFelter {
     }
 
     @Override
+    public int[] beregnMulige(int[] terninger) {
+        return new int[]{INSTANS_VAERDI};
+    }
+
+    @Override
     public int beregnPoint(int[] terninger) {
         if (this.erMulig(terninger)) {
             return instanser(terninger, INSTANS_VAERDI);

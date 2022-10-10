@@ -1,17 +1,26 @@
 package YatzyBlok.YazyBlokFelter.Felter.Enkelt;
 
 public class Treere extends EnkeltFelter {
+
     public Treere(String typeNavn) {
         super(typeNavn);
     }
+    private final int INSTANS_VAERDI = 3;
 
     @Override
     public boolean erMulig(int[] terninger) {
-        return !this.erBrugt() && instanser(terninger, 3) != 0;
+        return !this.erBrugt() && instanser(terninger, INSTANS_VAERDI) != 0;
     }
 
+    public int[] beregnMulige(int[] terninger) {
+        return new int[]{INSTANS_VAERDI};
+    }
     @Override
     public int beregnPoint(int[] terninger) {
-        return instanser(terninger, 3);
+        if (this.erMulig(terninger)) {
+            return instanser(terninger, INSTANS_VAERDI);
+        } else {
+            return 0;
+        }
     }
 }

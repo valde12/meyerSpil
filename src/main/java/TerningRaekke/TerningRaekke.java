@@ -1,3 +1,5 @@
+package TerningRaekke;
+
 public class TerningRaekke {
     private final Terning[] terningRaekke;
     private final Terning terning1;
@@ -43,43 +45,6 @@ public class TerningRaekke {
 
     public Terning[] returArray() {
         return terningRaekke;
-    }
-
-
-    public void visGrafisk() {
-        int[] terningRaekkeInt = returIntArray();
-        for (int i = 0; i < 6; i++) {
-            System.out.print("█▀▀▀▀▀▀▀█ ");
-        }
-        System.out.println();
-        for (int i = 0; i < 6; i++) {
-            switch (terningRaekkeInt[i]) {
-                case 1 -> System.out.print("█       █ ");
-                case 2, 3 -> System.out.print("█     ▀ █ ");
-                case 4, 5, 6 -> System.out.print("█ ▀   ▀ █ ");
-            }
-        }
-        System.out.println();
-        for (int i = 0; i < 6; i++) {
-            switch (terningRaekkeInt[i]) {
-                case 1, 3, 5 -> System.out.print("█   ▀   █ ");
-                case 2, 4 -> System.out.print("█       █ ");
-                case 6 -> System.out.print("█ ▀   ▀ █ ");
-            }
-        }
-        System.out.println();
-        for (int i = 0; i < 6; i++) {
-            switch (terningRaekkeInt[i]) {
-                case 1 -> System.out.print("█       █ ");
-                case 2, 3 -> System.out.print("█ ▀     █ ");
-                case 4, 5, 6 -> System.out.print("█ ▀   ▀ █ ");
-            }
-        }
-        System.out.println();
-        for (int i = 0; i < 6; i++) {
-            System.out.print("▀▀▀▀▀▀▀▀▀ ");;
-        }
-        System.out.println();
     }
 
 }

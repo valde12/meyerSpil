@@ -100,7 +100,7 @@ public class YatzyBlok {
         }
     }
 
-    public YatzyBlokFelt[] muligeFelter(int[] terninger) {
+    private YatzyBlokFelt[] muligeFelter(int[] terninger) {
         int taeller = 0;
         YatzyBlokFelt[] yatzyBlokFelter = {enere, toere, treere, firer, femmere, seksere, etPar, toPar, trePar, treEns, fireEns, toGangeTreEns, lilleStraight, storStraight, royal, hus, yatzy, chance};
         for (YatzyBlokFelt x: yatzyBlokFelter) {
@@ -119,9 +119,10 @@ public class YatzyBlok {
         return yatzyBlokFelterMulige;
     }
 
-    public String[][] muligeFelterStringDoubleArray(int[] terninger) {
+    public String[][] muligeFelterMedTerninger(int[] terninger) {
         YatzyBlokFelt[] yatzyBlokFelterMulige = muligeFelter(terninger);
-        String[][] muligeFelterStringDoubleArray = new String[yatzyBlokFelterMulige.length][];
+        String[][] muligeFelterMedTerninger = new String[yatzyBlokFelterMulige.length][];
+
         int taeller = 0;
         for (YatzyBlokFelt i : yatzyBlokFelterMulige) {
             int[] tempFeltMuligeArray = i.beregnMulige(terninger);
@@ -132,10 +133,44 @@ public class YatzyBlok {
                 feltMuligeArray[taeller2] = Integer.toString(b);
                 taeller2++;
             }
-            muligeFelterStringDoubleArray[taeller] = feltMuligeArray;
+            muligeFelterMedTerninger[taeller] = feltMuligeArray;
             taeller++;
         }
-        return muligeFelterStringDoubleArray;
+        return muligeFelterMedTerninger;
+    }
+
+    public String[][] alleFelterMedIndhold() {
+        YatzyBlokFelt[] yatzyBlokFelter = {enere, toere, treere, firer, femmere, seksere, etPar, toPar, trePar, treEns, fireEns, toGangeTreEns, lilleStraight, storStraight, royal, hus, yatzy, chance};
+        String[][] felterMedIndhold = new String[yatzyBlokFelter.length][];
+        int taeller = 0;
+        for (YatzyBlokFelt i : yatzyBlokFelter) {
+            String[] feltMedIndhold = new String[3];
+            if (i.erBrugt()) {
+                int[] intArrayTilTerninger = i.seTerninger();
+                StringBuilder stringTilTerninger = new StringBuilder();
+                int taeller2 = 0;
+                for (int terningOejenvaerdi : intArrayTilTerninger) {
+                    if (taeller2 != 0) {
+                        stringTilTerninger.append(", ");
+                        stringTilTerninger.append(terningOejenvaerdi);
+                    } else {
+                        stringTilTerninger.append(terningOejenvaerdi);
+                    }
+                    taeller2++;
+                }
+                feltMedIndhold[0] = i.seType();
+                feltMedIndhold[1] = Integer.toString(i.sePoint());
+                feltMedIndhold[2] = String.valueOf(stringTilTerninger);
+                felterMedIndhold[taeller] = feltMedIndhold;
+            } else {
+                feltMedIndhold[0] = i.seType();
+                feltMedIndhold[1] = "";
+                feltMedIndhold[2] = "";
+                felterMedIndhold[taeller] = feltMedIndhold;
+            }
+            taeller++;
+        }
+        return felterMedIndhold;
     }
 }
 
